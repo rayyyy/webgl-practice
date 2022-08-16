@@ -23,16 +23,22 @@
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const cube1 = new THREE.Mesh(geometry, material);
+    const cube2 = new THREE.Mesh(geometry, material);
+    scene.add(cube1);
+    scene.add(cube2);
+    cube1.position.x = -2;
+    cube1.position.y = -2;
 
-    camera.position.z = 5;
+    camera.position.z = 6;
 
     function animate() {
       requestAnimationFrame(animate);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      cube1.rotation.x += 0.01;
+      cube1.rotation.y += 0.01;
+      cube2.rotation.x -= 0.01;
+      cube2.rotation.y -= 0.01;
 
       renderer.render(scene, camera);
     };
